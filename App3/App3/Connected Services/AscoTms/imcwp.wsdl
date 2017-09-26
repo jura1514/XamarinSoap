@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WSDL:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="imcwp" xmlns:ns-qtms="imcqtms" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns-hostax="imchostax" xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/" xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns-wp="imcwp" name="imcwp" targetNamespace="imcwp" xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/">
+  <WSDL:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="imcwp">
+      <xsd:import namespace="imchostax" />
+      <xsd:import namespace="imcqtms" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:simpleType name="string-1-100">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-1023">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="1023" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-6">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="6" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-12">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-35">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-50">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-16">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="16" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-16">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="16" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-15">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="15" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-64">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-255">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-20">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-32">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-262144">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="262144" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-512">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="512" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-256">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="256" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-1024">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="1024" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Header">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Timestamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SenderId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DestinationId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Version" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="UniqueKey" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strLogin">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="DeviceId" nillable="true" type="ns-wp:string-1-100" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strMessageRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="LastTimestamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LastReadTimestamp" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strMessageResponse-Message">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimestampClient" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="MessageString" nillable="true" type="ns-wp:string-1-1023" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="UserName" nillable="true" type="ns-wp:string-0-40" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strMessageReply">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MessageString" nillable="true" type="ns-wp:string-1-1023" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="MessageTimestamp" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strMessageTemplate">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="strTemplateResponse-Template">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MessageString" nillable="true" type="ns-wp:string-1-100" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVehicleRequest">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="strVehicleResponse-Vehicle">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="FleetNumber" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="NumberPlate" nillable="true" type="ns-wp:string-1-12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strTrailerRequest">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="strTrailerResponse-Trailer">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="TrailerId" nillable="true" type="ns-wp:string-1-35" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TrailerType" nillable="true" type="ns-wp:string-1-50" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJourneyRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="NumberPlate" nillable="true" type="ns-wp:string-1-12" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TrailerId" nillable="true" type="ns-wp:string-1-35" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="JourneyId" nillable="true" type="ns-wp:string-0-16" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJourney-Job">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobStatus" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CustomerJobNo" nillable="true" type="ns-wp:string-1-30" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ClientName" nillable="true" type="ns-wp:string-1-64" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PickupName" nillable="true" type="ns-wp:string-1-64" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PickupAddress" nillable="true" type="ns-wp:string-1-255" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ReadyTime" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Material" nillable="true" type="ns-wp:string-1-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Weight" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Quantity" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DropoffName" nillable="true" type="ns-wp:string-1-64" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DropoffAddress" nillable="true" type="ns-wp:string-1-255" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ADR" type="xsd:boolean" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Information" nillable="true" type="ns-wp:string-1-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PO" nillable="true" type="ns-wp:string-1-50" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ContactName" nillable="true" type="ns-wp:string-1-30" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ContactNo" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DBTR" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SiteId" nillable="true" type="ns-wp:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExpectedStart" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExpectedFinish" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Chargeable" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJourneyResponse-Journey">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JourneyId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JourneyStatus" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExpectedStart" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExpectedFinish" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Job" type="ns-wp:strJourney-Job" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strConsignmentRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JourneyId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobId" nillable="true" type="ns-wp:string-1-16" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strConsignmentResponse-Request">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RequestId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="RequestStatus" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ReadyTime" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Material" nillable="true" type="ns-wp:string-1-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Weight" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Quantity" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Location" nillable="true" type="ns-wp:string-1-30" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ADR" type="xsd:boolean" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Information" nillable="true" type="ns-wp:string-1-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PO" nillable="true" type="ns-wp:string-1-50" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ContactName" nillable="true" type="ns-wp:string-1-30" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ContactNo" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DBTR" nillable="true" type="ns-wp:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="HCR" type="xsd:boolean" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CcuId" nillable="true" type="ns-wp:string-1-32" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJourneyStatus">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JourneyId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="JobId" nillable="true" type="ns-wp:string-0-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Timestamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EpodSigneeName" nillable="true" type="ns-wp:string-0-30" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EpodFileName" nillable="true" type="ns-wp:string-0-30" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EpodData" nillable="true" type="ns-wp:string-0-262144" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJourneyStatusResponse-ValidStatus">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="NextStatus" nillable="true" type="ns-wp:string-1-15" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strStatusRequest">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="strStatusValue-StatusNext">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="ns-wp:string-1-15" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strStatusField-StatusValue">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="StatusType" nillable="true" type="ns-wp:string-1-15" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="StatusLabel" nillable="true" type="ns-wp:string-1-30" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="StatusNext" type="ns-wp:strStatusValue-StatusNext" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strStatusResponse-StatusField">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="FieldName" nillable="true" type="ns-wp:string-1-64" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="StatusValue" type="ns-wp:strStatusField-StatusValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strDocumentRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JourneyId" nillable="true" type="ns-wp:string-1-16" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobId" nillable="true" type="ns-wp:string-1-16" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strDocumentResponse-Document">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="DocumentUrl" nillable="true" type="ns-wp:string-1-512" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DocumentFileName" nillable="true" type="ns-wp:string-1-256" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DocumentDescription" nillable="true" type="ns-wp:string-1-1024" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DocumentSize" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Login">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strLogin" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strLogin-LoginResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SessionPassword" nillable="true" type="ns-wp:string-0-100" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MessageRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strMessageRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strMessageRequest-MessageResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Timestamp" type="xsd:dateTime" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="LastReadTimestamp" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Message" type="ns-wp:strMessageResponse-Message" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MessageReply">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strMessageReply" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strMessageReply-MessageReceived">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="MessageReceivedOK" nillable="true" type="ns-wp:string-1-6" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MessageTemplate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strMessageTemplate" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strMessageTemplate-TemplateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Template" type="ns-wp:strTemplateResponse-Template" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VehicleRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strVehicleRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strVehicleRequest-VehicleResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" type="ns-wp:strVehicleResponse-Vehicle" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TrailerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strTrailerRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strTrailerRequest-TrailerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Trailer" type="ns-wp:strTrailerResponse-Trailer" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="JourneyRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strJourneyRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strJourneyRequest-JourneyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Journey" type="ns-wp:strJourneyResponse-Journey" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsignmentRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strConsignmentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strConsignmentRequest-ConsignmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Request" type="ns-wp:strConsignmentResponse-Request" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="JourneyStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strJourneyStatus" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strJourneyStatus-JourneyStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="ns-wp:string-1-15" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValidStatus" type="ns-wp:strJourneyStatusResponse-ValidStatus" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="StatusRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strStatusRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strStatusRequest-StatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="StatusField" type="ns-wp:strStatusResponse-StatusField" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DocumentRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Hdr" type="ns-wp:Header" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Request" type="ns-wp:strDocumentRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="strDocumentRequest-DocumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Document" type="ns-wp:strDocumentResponse-Document" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="imchostax">
+      <xsd:import namespace="imcwp" />
+      <xsd:import namespace="imcqtms" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:simpleType name="string-1-1">
+        <xsd:restriction base="xsd:string">
+          <xsd:length value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-32">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-4">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-100">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-60">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="60" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-60">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="60" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-20">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-40">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-10">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Header">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Timestamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SenderId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DestinationId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Version" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="UniqueKey" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCOM-COMH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCOM-COML">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-100" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCOM">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="COMH" nillable="true" type="ns-hostax:strCOM-COMH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="COML" nillable="true" type="ns-hostax:strCOM-COML" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVES-VESH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVES-VESL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="IMO" nillable="true" type="ns-hostax:string-1-30" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-60" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="VesselType" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Length" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="VesselBreadth" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="WorkableLength" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="WorkableBreadth" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="UseableDeckArea" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="GrossWeight" type="xsd:double" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="NetWeight" type="xsd:double" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DeadWeight" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="OldName" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Draft" nillable="true" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVES">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="VESH" nillable="true" type="ns-hostax:strVES-VESH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="VESL" nillable="true" type="ns-hostax:strVES-VESL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJOB-JOBH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJOB-JOBL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CustAccount" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="OpsJobNum" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="StartDate" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EndDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ProjId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesAgreementId" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesAgreementTitle" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Vessel" nillable="true" type="ns-hostax:string-0-30" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Voyage" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustLocation" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Well" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Stage" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobCategory" nillable="true" type="ns-hostax:string-1-20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strJOB">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="JOBH" nillable="true" type="ns-hostax:strJOB-JOBH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JOBL" nillable="true" type="ns-hostax:strJOB-JOBL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCUS-CUSH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCUS-CUSL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="AccountNum" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PartyNumber" nillable="true" type="ns-hostax:string-1-40" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCUS">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="CUSH" nillable="true" type="ns-hostax:strCUS-CUSH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CUSL" nillable="true" type="ns-hostax:strCUS-CUSL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCAS-CASH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCAS-CASL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CustAssetId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CustAssetType" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Customer" nillable="true" type="ns-hostax:string-1-40" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-60" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ParentCustAsset" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="IsActive" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="IsOffshore" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strCAS">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="CASH" nillable="true" type="ns-hostax:strCAS-CASH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CASL" nillable="true" type="ns-hostax:strCAS-CASL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVOY-VOYH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVOY-VOYL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="VoyageId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Vessel" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="VoyageType" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="VesselUser" nillable="true" type="ns-hostax:string-0-100" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="VesselActivity" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SailingType" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Arrival" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Departure" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Quayside" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Berth" nillable="true" type="ns-hostax:string-0-20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strVOY">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="VOYH" nillable="true" type="ns-hostax:strVOY-VOYH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="VOYL" nillable="true" type="ns-hostax:strVOY-VOYL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strQYS-QYSH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strQYS-QYSL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="QuaysideId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-0-30" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strQYS">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="QYSH" nillable="true" type="ns-hostax:strQYS-QYSH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="QYSL" nillable="true" type="ns-hostax:strQYS-QYSL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strBTH-BTHH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strBTH-BTHL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="BerthId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="QuaysideId" nillable="true" type="ns-hostax:string-1-20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strBTH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="BTHH" nillable="true" type="ns-hostax:strBTH-BTHH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="BTHL" nillable="true" type="ns-hostax:strBTH-BTHL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRD-PRDH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRD-PRDL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ItemId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-1-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="UOM" nillable="true" type="ns-hostax:string-1-10" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ItemVATGroup" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SalesCategory" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ProductDimensionGroup" nillable="true" type="ns-hostax:string-0-10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRD">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="PRDH" nillable="true" type="ns-hostax:strPRD-PRDH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PRDL" nillable="true" type="ns-hostax:strPRD-PRDL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRV-PRVH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRV-PRVL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ItemId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Variant1" nillable="true" type="ns-hostax:string-0-10" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Variant3" nillable="true" type="ns-hostax:string-0-10" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SalesCategory" nillable="true" type="ns-hostax:string-1-20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strPRV">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="PRVH" nillable="true" type="ns-hostax:strPRV-PRVH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PRVL" nillable="true" type="ns-hostax:strPRV-PRVL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strOPA-OPAH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strOPA-OPAL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Code" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" nillable="true" type="ns-hostax:string-0-60" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strOPA">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="OPAH" nillable="true" type="ns-hostax:strOPA-OPAH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="OPAL" nillable="true" type="ns-hostax:strOPA-OPAL" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strSOH-SOHH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-hostax:string-1-1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strSOH-SOHL">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="RecId" nillable="true" type="ns-hostax:string-1-32" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LegalEntity" nillable="true" type="ns-hostax:string-1-4" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SalesOrderNumber" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesOrderName" nillable="true" type="ns-hostax:string-0-50" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CustAccount" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ASCJobId" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ASCVoyage" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesOrigin" nillable="true" type="ns-hostax:string-0-10" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ProjectID" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesAgreementID" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SalesAgreementTitle" nillable="true" type="ns-hostax:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ReqShipDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ReqReceiptDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ConfShipDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ConfReceiptDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Currency" nillable="true" type="ns-hostax:string-1-10" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="VATGroup" nillable="true" type="ns-hostax:string-1-20" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="JobCategory" nillable="true" type="ns-hostax:string-1-20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strSOH">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="SOHH" nillable="true" type="ns-hostax:strSOH-SOHH" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SOHL" nillable="true" type="ns-hostax:strSOH-SOHL" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="imcqtms">
+      <xsd:import namespace="imcwp" />
+      <xsd:import namespace="imchostax" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:simpleType name="string-1-1">
+        <xsd:restriction base="xsd:string">
+          <xsd:length value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-64">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-255">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-24">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="24" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-60">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="60" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-1-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="string-0-32">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Header">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Timestamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="SenderId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DestinationId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Version" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="UniqueKey" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strTransportRequest-TransportRequestLine">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Action" nillable="true" type="ns-qtms:string-1-1" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="RequestedPickupVendor" nillable="true" type="ns-qtms:string-0-64" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="RequestedDropoffVendor" nillable="true" type="ns-qtms:string-0-64" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ReadyTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="RequestedAddress" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LineRecNo" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Inbound" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ClientStr" nillable="true" type="ns-qtms:string-0-50" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TrailerStr" nillable="true" type="ns-qtms:string-0-50" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Material" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Information" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="QuantityStr" nillable="true" type="ns-qtms:string-0-24" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Weight" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ContactName" nillable="true" type="ns-qtms:string-0-40" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ContactNumber" nillable="true" type="ns-qtms:string-0-20" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="VoyageSailingTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Vessel" nillable="true" type="ns-qtms:string-0-60" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustomsStatus" nillable="true" type="ns-qtms:string-0-12" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CostCode" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="UNNumber" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DGClass" nillable="true" type="ns-qtms:string-0-255" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ManifestId" nillable="true" type="ns-qtms:string-0-100" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LineState" nillable="true" type="ns-qtms:string-0-100" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="LineId" nillable="true" type="ns-qtms:string-1-30" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HmRefNumber" nillable="true" type="ns-qtms:string-0-30" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CcuId" nillable="true" type="ns-qtms:string-0-32" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SiteId" nillable="true" type="ns-qtms:string-0-32" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="WellNumberId" nillable="true" type="ns-qtms:string-0-32" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Rental" nillable="true" type="ns-qtms:string-0-32" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="strTransportRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="TransportRequestLine" nillable="true" type="ns-qtms:strTransportRequest-TransportRequestLine" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </WSDL:types>
+  <WSDL:message name="Login">
+    <WSDL:part name="Body" element="ns-wp:Login" />
+  </WSDL:message>
+  <WSDL:message name="strLogin-LoginResponse">
+    <WSDL:part name="Body" element="ns-wp:strLogin-LoginResponse" />
+  </WSDL:message>
+  <WSDL:message name="MessageRequest">
+    <WSDL:part name="Body" element="ns-wp:MessageRequest" />
+  </WSDL:message>
+  <WSDL:message name="strMessageRequest-MessageResponse">
+    <WSDL:part name="Body" element="ns-wp:strMessageRequest-MessageResponse" />
+  </WSDL:message>
+  <WSDL:message name="MessageReply">
+    <WSDL:part name="Body" element="ns-wp:MessageReply" />
+  </WSDL:message>
+  <WSDL:message name="strMessageReply-MessageReceived">
+    <WSDL:part name="Body" element="ns-wp:strMessageReply-MessageReceived" />
+  </WSDL:message>
+  <WSDL:message name="MessageTemplate">
+    <WSDL:part name="Body" element="ns-wp:MessageTemplate" />
+  </WSDL:message>
+  <WSDL:message name="strMessageTemplate-TemplateResponse">
+    <WSDL:part name="Body" element="ns-wp:strMessageTemplate-TemplateResponse" />
+  </WSDL:message>
+  <WSDL:message name="VehicleRequest">
+    <WSDL:part name="Body" element="ns-wp:VehicleRequest" />
+  </WSDL:message>
+  <WSDL:message name="strVehicleRequest-VehicleResponse">
+    <WSDL:part name="Body" element="ns-wp:strVehicleRequest-VehicleResponse" />
+  </WSDL:message>
+  <WSDL:message name="TrailerRequest">
+    <WSDL:part name="Body" element="ns-wp:TrailerRequest" />
+  </WSDL:message>
+  <WSDL:message name="strTrailerRequest-TrailerResponse">
+    <WSDL:part name="Body" element="ns-wp:strTrailerRequest-TrailerResponse" />
+  </WSDL:message>
+  <WSDL:message name="JourneyRequest">
+    <WSDL:part name="Body" element="ns-wp:JourneyRequest" />
+  </WSDL:message>
+  <WSDL:message name="strJourneyRequest-JourneyResponse">
+    <WSDL:part name="Body" element="ns-wp:strJourneyRequest-JourneyResponse" />
+  </WSDL:message>
+  <WSDL:message name="ConsignmentRequest">
+    <WSDL:part name="Body" element="ns-wp:ConsignmentRequest" />
+  </WSDL:message>
+  <WSDL:message name="strConsignmentRequest-ConsignmentResponse">
+    <WSDL:part name="Body" element="ns-wp:strConsignmentRequest-ConsignmentResponse" />
+  </WSDL:message>
+  <WSDL:message name="JourneyStatus">
+    <WSDL:part name="Body" element="ns-wp:JourneyStatus" />
+  </WSDL:message>
+  <WSDL:message name="strJourneyStatus-JourneyStatusResponse">
+    <WSDL:part name="Body" element="ns-wp:strJourneyStatus-JourneyStatusResponse" />
+  </WSDL:message>
+  <WSDL:message name="StatusRequest">
+    <WSDL:part name="Body" element="ns-wp:StatusRequest" />
+  </WSDL:message>
+  <WSDL:message name="strStatusRequest-StatusResponse">
+    <WSDL:part name="Body" element="ns-wp:strStatusRequest-StatusResponse" />
+  </WSDL:message>
+  <WSDL:message name="DocumentRequest">
+    <WSDL:part name="Body" element="ns-wp:DocumentRequest" />
+  </WSDL:message>
+  <WSDL:message name="strDocumentRequest-DocumentResponse">
+    <WSDL:part name="Body" element="ns-wp:strDocumentRequest-DocumentResponse" />
+  </WSDL:message>
+  <WSDL:portType name="imcwpPortType">
+    <WSDL:operation name="Login">
+      <documentation>Service definition of function ns_wp__Login</documentation>
+      <WSDL:input message="ns-wp:Login" />
+      <WSDL:output message="ns-wp:strLogin-LoginResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="MessageRequest">
+      <documentation>Service definition of function ns_wp__MessageRequest</documentation>
+      <WSDL:input message="ns-wp:MessageRequest" />
+      <WSDL:output message="ns-wp:strMessageRequest-MessageResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="MessageReply">
+      <documentation>Service definition of function ns_wp__MessageReply</documentation>
+      <WSDL:input message="ns-wp:MessageReply" />
+      <WSDL:output message="ns-wp:strMessageReply-MessageReceived" />
+    </WSDL:operation>
+    <WSDL:operation name="MessageTemplate">
+      <documentation>Service definition of function ns_wp__MessageTemplate</documentation>
+      <WSDL:input message="ns-wp:MessageTemplate" />
+      <WSDL:output message="ns-wp:strMessageTemplate-TemplateResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="VehicleRequest">
+      <documentation>Service definition of function ns_wp__VehicleRequest</documentation>
+      <WSDL:input message="ns-wp:VehicleRequest" />
+      <WSDL:output message="ns-wp:strVehicleRequest-VehicleResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="TrailerRequest">
+      <documentation>Service definition of function ns_wp__TrailerRequest</documentation>
+      <WSDL:input message="ns-wp:TrailerRequest" />
+      <WSDL:output message="ns-wp:strTrailerRequest-TrailerResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="JourneyRequest">
+      <documentation>Service definition of function ns_wp__JourneyRequest</documentation>
+      <WSDL:input message="ns-wp:JourneyRequest" />
+      <WSDL:output message="ns-wp:strJourneyRequest-JourneyResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="ConsignmentRequest">
+      <documentation>Service definition of function ns_wp__ConsignmentRequest</documentation>
+      <WSDL:input message="ns-wp:ConsignmentRequest" />
+      <WSDL:output message="ns-wp:strConsignmentRequest-ConsignmentResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="JourneyStatus">
+      <documentation>Service definition of function ns_wp__JourneyStatus</documentation>
+      <WSDL:input message="ns-wp:JourneyStatus" />
+      <WSDL:output message="ns-wp:strJourneyStatus-JourneyStatusResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="StatusRequest">
+      <documentation>Service definition of function ns_wp__StatusRequest</documentation>
+      <WSDL:input message="ns-wp:StatusRequest" />
+      <WSDL:output message="ns-wp:strStatusRequest-StatusResponse" />
+    </WSDL:operation>
+    <WSDL:operation name="DocumentRequest">
+      <documentation>Service definition of function ns_wp__DocumentRequest</documentation>
+      <WSDL:input message="ns-wp:DocumentRequest" />
+      <WSDL:output message="ns-wp:strDocumentRequest-DocumentResponse" />
+    </WSDL:operation>
+  </WSDL:portType>
+  <WSDL:binding name="imcwp" type="ns-wp:imcwpPortType">
+    <SOAP:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WSDL:operation name="Login">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="MessageRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="MessageReply">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="MessageTemplate">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="VehicleRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="TrailerRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="JourneyRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="ConsignmentRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="JourneyStatus">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="StatusRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+    <WSDL:operation name="DocumentRequest">
+      <SOAP:operation soapAction="" />
+      <WSDL:input>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:input>
+      <WSDL:output>
+        <SOAP:body use="literal" parts="Body" />
+      </WSDL:output>
+    </WSDL:operation>
+  </WSDL:binding>
+  <WSDL:service name="imcwp">
+    <documentation>gSOAP 2.8.21 generated service definition</documentation>
+    <WSDL:port name="imcwp" binding="ns-wp:imcwp">
+      <SOAP:address location="http://10.0.100.45:29791" />
+    </WSDL:port>
+  </WSDL:service>
+</WSDL:definitions>
