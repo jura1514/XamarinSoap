@@ -9,6 +9,8 @@ namespace App3
 {
     public partial class App : Application
     {
+        public static ToDoItemManager TodoManager { get; set; }
+
         public App()
         {
             InitializeComponent();

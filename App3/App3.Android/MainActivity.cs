@@ -20,6 +20,9 @@ namespace App3.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            App.TodoManager = new ToDoItemManager(new SoapService());
+
             LoadApplication(new App());
         }
     }

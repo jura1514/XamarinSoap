@@ -1,35 +1,28 @@
-﻿using App3.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
 using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using System.ServiceModel;
+using App3.Droid.AscoTms;
+using System.ServiceModel.Channels;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace App3
+namespace App3.Droid
 {
-    public partial class MainPage : ContentPage
+    public class SoapService : ISoapService
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+        public AscoTms.imcwp imcwp;
 
-        public  async void Submit_Clicked(object sender, EventArgs e)
+        public SoapService()
         {
-            var name = username.Text;
-            var pass = password.Text;
-
-            try
-            {
-                var sessionPassword = await this.Authenticate(name, pass);
-            }
-            catch (Exception ex)
-            {
-            }
+            imcwp = new AscoTms.imcwp();
         }
 
         public async Task<string> Authenticate(string userName, string password)
@@ -61,50 +54,51 @@ namespace App3
 
         private Task<LoginCompletedEventArgs> LoginAsync(Login login, string userName, string password)
         {
-            var client = this.UpdateServiceUrl();
+            var client = imcwp;
 
             var tcs = new TaskCompletionSource<LoginCompletedEventArgs>();
 
-            EventHandler<LoginCompletedEventArgs> handler = null;
-            handler += (sender, e) =>
-            {
-                if (e.Error == null)
-                {
-                    tcs.SetResult(e);
-                }
-                else
-                {
-                    tcs.SetException(e.Error);
-                }
+            //EventHandler<LoginCompletedEventArgs> handler = null;
+            //handler += (sender, e) =>
+            //{
+            //    if (e.Error == null)
+            //    {
+            //        tcs.SetResult(e);
+            //    }
+            //    else
+            //    {
+            //        tcs.SetException(e.Error);
+            //    }
 
-                client.LoginCompleted -= handler;
-            };
+            //    client.LoginCompleted -= handler;
+            //};
 
             var base64EncodedCredentials = this.EncodeBasicAuthenticationCredentials(userName, password);
 
             // ReSharper disable once UnusedVariable
-            using (var scope = new OperationContextScope(client.InnerChannel))
-            {
-                var request = this.GetBasicAuthenticationRequest(base64EncodedCredentials);
+            //using (var scope = new OperationContextScope(client.InnerChannel))
+            //{
+            //    var request = this.GetBasicAuthenticationRequest(base64EncodedCredentials);
 
-                OperationContext.Current.OutgoingMessageProperties.Add(HttpRequestMessageProperty.Name, request);
+            //    OperationContext.Current.OutgoingMessageProperties.Add(HttpRequestMessageProperty.Name, request);
 
-                client.LoginCompleted += handler;
-                client.LoginAsync(login);
-            }
+            //    client.LoginCompleted += handler;
+ 
+            //client.Credentials.Equals().;
+            //    client.LoginAsync(login);
+            //}
 
             return tcs.Task;
         }
 
-        public imcwpPortTypeClient UpdateServiceUrl()
-        {
-            var serviceUrl = "http://10.0.1.144:29791";
-            EndpointAddress serivceUrl = new EndpointAddress(serviceUrl);
+        //public imcwpPortTypeClient UpdateServiceUrl()
+        //{
+        //    var serviceUrl = "http://10.0.1.144:29791";
+        //    EndpointAddress serivceUrl = new EndpointAddress(serviceUrl);
 
-            //var ascoTmsService = new imcwpPortTypeClient(EndpointConfiguration.imcwp, serviceUrl);
-            var ascoTmsService = new imcwpPortTypeClient("imcwp");
-            return ascoTmsService;
-        }
+        //    var ascoTmsService = new imcwpPortTypeClient(EndpointConfiguration.imcwp, serviceUrl);
+        //    return ascoTmsService;
+        //}
 
         private const string AuthHeader = "Authorization";
         private const string SoapHeader = "SOAPAction";
@@ -147,5 +141,6 @@ namespace App3
 
             return request;
         }
+
     }
 }
