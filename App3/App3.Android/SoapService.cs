@@ -10,7 +10,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.ServiceModel;
-using App3.Droid.AscoTms;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 
@@ -18,11 +17,9 @@ namespace App3.Droid
 {
     public class SoapService : ISoapService
     {
-        public AscoTms.imcwp imcwp;
 
         public SoapService()
         {
-            imcwp = new AscoTms.imcwp();
         }
 
         public async Task<string> Authenticate(string userName, string password)
@@ -54,51 +51,69 @@ namespace App3.Droid
 
         private Task<LoginCompletedEventArgs> LoginAsync(Login login, string userName, string password)
         {
-            var client = imcwp;
+            var client = this.UpdateServiceUrl();
 
             var tcs = new TaskCompletionSource<LoginCompletedEventArgs>();
 
-            //EventHandler<LoginCompletedEventArgs> handler = null;
-            //handler += (sender, e) =>
-            //{
-            //    if (e.Error == null)
-            //    {
-            //        tcs.SetResult(e);
-            //    }
-            //    else
-            //    {
-            //        tcs.SetException(e.Error);
-            //    }
+            EventHandler<LoginCompletedEventArgs> handler = null;
+            handler += (sender, e) =>
+            {
+                if (e.Error == null)
+                {
+                    tcs.SetResult(e);
+                }
+                else
+                {
+                    tcs.SetException(e.Error);
+                }
 
-            //    client.LoginCompleted -= handler;
-            //};
+                client.LoginCompleted -= handler;
+            };
 
             var base64EncodedCredentials = this.EncodeBasicAuthenticationCredentials(userName, password);
 
             // ReSharper disable once UnusedVariable
-            //using (var scope = new OperationContextScope(client.InnerChannel))
-            //{
-            //    var request = this.GetBasicAuthenticationRequest(base64EncodedCredentials);
+            using (var scope = new OperationContextScope(client.InnerChannel))
+            {
+                var request = this.GetBasicAuthenticationRequest(base64EncodedCredentials);
 
-            //    OperationContext.Current.OutgoingMessageProperties.Add(HttpRequestMessageProperty.Name, request);
+                OperationContext.Current.OutgoingMessageProperties.Add(HttpRequestMessageProperty.Name, request);
 
-            //    client.LoginCompleted += handler;
- 
-            //client.Credentials.Equals().;
-            //    client.LoginAsync(login);
-            //}
+                client.LoginCompleted += handler;
+                client.LoginAsync(login);
+            }
 
             return tcs.Task;
         }
 
-        //public imcwpPortTypeClient UpdateServiceUrl()
-        //{
-        //    var serviceUrl = "http://10.0.1.144:29791";
-        //    EndpointAddress serivceUrl = new EndpointAddress(serviceUrl);
+        public imcwpPortTypeClient UpdateServiceUrl()
+        {
+            var serviceUrl = "http://10.0.1.144:29791";
+            EndpointAddress serivceUrl = new EndpointAddress(serviceUrl);
 
-        //    var ascoTmsService = new imcwpPortTypeClient(EndpointConfiguration.imcwp, serviceUrl);
-        //    return ascoTmsService;
-        //}
+            BasicHttpBinding binding = CreateBasicHttp();
+
+            var ascoTmsService = new imcwpPortTypeClient(binding, serivceUrl);
+            //var ascoTmsService = new imcwpPortTypeClient("imcwp");
+            return ascoTmsService;
+        }
+
+        private static BasicHttpBinding CreateBasicHttp()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "imcwp",
+                Namespace = "imcwp",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
+
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
+            return binding;
+        }
 
         private const string AuthHeader = "Authorization";
         private const string SoapHeader = "SOAPAction";

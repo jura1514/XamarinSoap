@@ -101,9 +101,28 @@ namespace App3
             var serviceUrl = "http://10.0.1.144:29791";
             EndpointAddress serivceUrl = new EndpointAddress(serviceUrl);
 
-            //var ascoTmsService = new imcwpPortTypeClient(EndpointConfiguration.imcwp, serviceUrl);
-            var ascoTmsService = new imcwpPortTypeClient("imcwp");
+            BasicHttpBinding binding = CreateBasicHttp();
+
+            var ascoTmsService = new imcwpPortTypeClient(binding, serivceUrl);
+            //var ascoTmsService = new imcwpPortTypeClient("imcwp");
             return ascoTmsService;
+        }
+
+        private static BasicHttpBinding CreateBasicHttp()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "imcwp",
+                Namespace = "imcwp",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
+
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
+            return binding;
         }
 
         private const string AuthHeader = "Authorization";

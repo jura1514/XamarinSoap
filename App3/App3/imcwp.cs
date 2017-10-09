@@ -88,6 +88,7 @@ public interface imcwpPortType
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("SlSvcUtil", "5.0.61118.0")]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.SerializableAttribute()]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="imcwp")]
 public partial class Login
 {

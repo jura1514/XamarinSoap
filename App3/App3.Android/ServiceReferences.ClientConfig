@@ -9,7 +9,7 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://10.0.100.45:29791" binding="basicHttpBinding"
+            <endpoint address="http://10.0.1.144:29791" binding="basicHttpBinding"
                 bindingConfiguration="imcwp" contract="imcwpPortType" name="imcwp" />
         </client>
         <extensions />
